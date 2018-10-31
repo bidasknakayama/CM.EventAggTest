@@ -28,9 +28,9 @@
             <Button Content="PublishOnUIThread + Execute.OnUIThreadAsync" cal:Message.Attach="[Event Click]=[Action PublishOnUIThread(1)]"/>
             <Button Content="PublishOnUIThreadAsync + Execute.OnUIThreadAsync" cal:Message.Attach="[Event Click]=[Action PublishOnUIThreadAsync(1)]"/>
 
+            <Button Content="UpdateDirect" cal:Message.Attach="[Event Click]=[Action PublishOnBackgroundThread(2)]"/>
 
-            
-            
+
         </StackPanel>
     </Grid>
 </Window>

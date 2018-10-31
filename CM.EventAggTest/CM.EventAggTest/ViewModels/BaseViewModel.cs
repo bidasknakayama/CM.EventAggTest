@@ -53,6 +53,10 @@ namespace CM.EventAggTest.ViewModels
 
 
         }
+        /*public override object GetView(object context = null)
+        {
+            return null;
+        }*/
         #endregion
 
         public void PublishOnBackgroundThread(int flag) {
@@ -66,6 +70,9 @@ namespace CM.EventAggTest.ViewModels
             else if( flag == 1)
             {
                 _eventAggregator.PublishOnBackgroundThread(new HelloMessage(ix.ToString(), true));
+            }else if( flag == 2)
+            {
+                MyText = "update direct !";
             }
         }
 
@@ -81,6 +88,10 @@ namespace CM.EventAggTest.ViewModels
             {
                 _eventAggregator.PublishOnCurrentThread(new HelloMessage(ix.ToString(), true));
             }
+            else if (flag == 2)
+            {
+                MyText = "update direct !";
+            }
         }
         public void PublishOnUIThread(int flag)
         {
@@ -94,6 +105,10 @@ namespace CM.EventAggTest.ViewModels
             {
                 _eventAggregator.PublishOnUIThread(new HelloMessage(ix.ToString(), true));
             }
+            else if (flag == 2)
+            {
+                MyText = "update direct !";
+            }
         }
         public void PublishOnUIThreadAsync(int flag)
         {
@@ -106,6 +121,10 @@ namespace CM.EventAggTest.ViewModels
             else if (flag == 1)
             {
                 _eventAggregator.PublishOnUIThreadAsync(new HelloMessage(ix.ToString(), true));
+            }
+            else if (flag == 2)
+            {
+                MyText = "update direct !";
             }
         }
 
@@ -133,6 +152,8 @@ namespace CM.EventAggTest.ViewModels
                 _myText = message.msg;
                 MyText = _myText;
             }
+
+            NotifyOfPropertyChange(() => MyText);
         }
         
         private int ix = 0;
